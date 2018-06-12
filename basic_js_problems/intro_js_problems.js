@@ -1,4 +1,4 @@
-print = console.log(console);
+"use strict";
 // madLib
 // Write a function that takes three strings - a verb, an adjective, and a noun - uppercases and interpolates them into the sentence "We shall VERB the ADJECTIVE NOUN". Use ES6 template literals.
 //
@@ -8,7 +8,7 @@ print = console.log(console);
 // "We shall MAKE the BEST GUAC."
 
 function madLib(verb, adjective, noun) {
-  return `We shall ${verb.toUpperCase()} the ${adjective.toUpperCase()} ${noun.toUpperCase()}`
+  return `We shall ${verb.toUpperCase()} the ${adjective.toUpperCase()}  ${noun.toUpperCase()}`;
 }
 
 
@@ -31,7 +31,7 @@ function madLib(verb, adjective, noun) {
 // false
 
 function isSubstring(string, substring){
-  return string.includes(substring)
+  return string.includes(substring);
 }
 
 
@@ -124,12 +124,13 @@ function sumOfNPrimes(n){
 // Mx. Brian Jingleheimer Schmidt
 // Mx. Leo Jingleheimer Schmidt
 // undefined
-//THIS FUNCTION IS NOT YET WORKING
-function titleize(arr, cb) {
-  let titleized = arr.map(name => `Mx. ${name} Jingleheimer Schmidt`);
+
+function titleize(arr, cb){
+  let titleized = arr.map(name => `Mx. ${name} Jingleheimer Schmidt`)
   cb(titleized);
 };
-
-titleize(['mary', 'Brian', 'Leo'], (names)) => {
-  names.forEach(name => console.log(name));
+titleize(["Mary", "Brian", "Leo"], (arr) => {
+  arr.forEach(name => console.log(name));
 });
+
+// Syntax error discoved.  Thanks JSlinter!
