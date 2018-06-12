@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; // This allows you to not set variables to the global scope if you accidently don't declare them like my ruby habits would have me do
 
 function soundMaker(sound, times){
 
@@ -44,7 +44,7 @@ function summation(arr){
 }
 
 
-// some testing 
+// some testing
 console.log(summation([1,2,3,4]));
 
 // what we do after it has been captured changes the variable outside of the scope too!

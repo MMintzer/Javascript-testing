@@ -20,4 +20,10 @@ var bsearch = function(arr, target){
 
 
 
-bsearch([1, 2, 5, 7, 8, 9], 2)
+console.log(bsearch([1, 2, 5, 7, 8, 9], 2)) // => 1
+
+console.log(bsearch([1, 2, 5, 7, 8, 9], 8))  // => 4
+
+console.log(bsearch([1, 2, 5, 7, 8, 9], 9)) // => 5
+
+//it works!
