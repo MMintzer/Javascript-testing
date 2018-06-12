@@ -1,9 +1,9 @@
 "use strict"; // This allows you to not set variables to the global scope if you accidently don't declare them like my ruby habits would have me do
 
-function soundMaker(sound, times){
+function soundMaker(sound, times) {
 
   // closure
-  function makeSound(){ //makeSound captured the sound vairable
+  function makeSound() { //makeSound captured the sound vairable
     console.log(`${sound}`);
   }
 
@@ -26,13 +26,13 @@ soundMaker("woof", 5)
 
 
 
-function summation(arr){
+function summation(arr) {
   let sum = 1;
 
 
- //this is a closer because it captured the arr from above
-  function summer(){
-    for(let i = 0; i < arr.length; i++){
+  //this is a closer because it captured the arr from above
+  function summer() {
+    for (let i = 0; i < arr.length; i++) {
       sum *= arr[i];
     }
   }
@@ -45,7 +45,7 @@ function summation(arr){
 
 
 // some testing
-console.log(summation([1,2,3,4]));
+console.log(summation([1, 2, 3, 4]));
 
 // what we do after it has been captured changes the variable outside of the scope too!
 

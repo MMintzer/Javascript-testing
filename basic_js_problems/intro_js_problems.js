@@ -115,3 +115,21 @@ function sumOfNPrimes(n){
 
   return answer;
 }
+
+
+// Write a function titleize that takes an array of names and a function (callback). titleize should use Array.prototype.map to create a new array full of titleized versions of each name - titleize meaning "Roger" should be made to read "Mx. Roger Jingleheimer Schmidt". Then pass this new array of names to the callback, which should use Array.prototype.forEach to print out each titleized name.
+
+// > titleize(["Mary", "Brian", "Leo"], printCallback);
+// Mx. Mary Jingleheimer Schmidt
+// Mx. Brian Jingleheimer Schmidt
+// Mx. Leo Jingleheimer Schmidt
+// undefined
+//THIS FUNCTION IS NOT YET WORKING
+function titleize(arr, cb) {
+  let titleized = arr.map(name => `Mx. ${name} Jingleheimer Schmidt`);
+  cb(titleized);
+};
+
+titleize(['mary', 'Brian', 'Leo'], (names)) => {
+  names.forEach(name => console.log(name));
+});
