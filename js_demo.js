@@ -43,6 +43,8 @@ function summation(arr){
 
 }
 
+
+// some testing 
 console.log(summation([1,2,3,4]));
 
 // what we do after it has been captured changes the variable outside of the scope too!
