@@ -59,13 +59,6 @@ function fizzBuzz(num){
   return results;
 }
 
-
-
-
-
-//
-// Define a function fizzBuzz(array) that takes an array and returns a new array of every number in the array that is divisible by either 3 or 5, but not both.
-//
 // isPrime
 // Define a function isPrime(number) that returns true if number is prime. Otherwise, false. Assume number is a positive integer.
 //
@@ -80,6 +73,21 @@ function fizzBuzz(num){
 //
 // > isPrime(3548563)
 // false
+
+
+function isPrime(num){
+  if (num < 2){
+    return false;
+  }
+
+  for(let i = 2; i < num; i++){
+    if (num % i === 0){
+      return false;
+    }
+  }
+
+  return true;
+}
 // sumOfNPrimes
 // Using firstNPrimes, write a function sumOfNPrimes(n) that returns the sum of the first n prime numbers. Hint: use isPrime as a helper method.
 //
