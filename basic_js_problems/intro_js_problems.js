@@ -99,3 +99,19 @@ function isPrime(num){
 //
 // > sumOfNPrimes(4)
 // 17
+
+function sumOfNPrimes(n){
+  let answer = 0;
+  let primescount = 0;
+  let i = 2;
+
+  while (primescount < n){
+    if (isPrime(i)) {
+      answer += i
+      primescount++;
+    }
+    i++;
+  }
+
+  return answer;
+}
