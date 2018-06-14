@@ -46,7 +46,7 @@ Array.prototype.transpose = function() {
   for (let i = 0; i < this.length; i++){
     subResult = [];
     for (let j = 0; j < this.length; j++){
-      if (this[j][i] == undefined) {continue;}
+      if (this[j][i] === undefined) {continue;}
       subResult.push(this[j][i]);
     }
     if (subResult.length > 1){
