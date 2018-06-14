@@ -134,3 +134,40 @@ titleize(["Mary", "Brian", "Leo"], (arr) => {
 });
 
 // Syntax error discoved.  Thanks JSlinter!
+
+
+
+// Phase II: Constructors, Prototypes, and this
+// First write a constructor function for an elephant. Each elephant should have a name, height (in inches), and array of tricks in gerund form (e.g. "painting a picture" rather than "paint a picture").
+//
+// Next write a few prototype functions that will be shared among all elephants:
+//
+// Elephant.prototype.trumpet: should print "(name) the elephant goes 'phrRRRRRRRRRRR!!!!!!!'"
+// Elephant.prototype.grow: should increase the elephant's height by 12 inches
+// Elephant.prototype.addTrick(trick): add a new trick to their existing repertoire
+// Elephant.prototype.play: print out a random trick, e.g. "(name) is (trick)!"
+// Hint: look up some JS Math methods!
+// Make sure to create an elephant and test all of these functions out on them method style!
+
+function Elephant(name, height, tricks) {
+  this.name = name;
+  this.height = height;
+  this.tricks = tricks;
+}
+
+Elephant.prototype.trumpet = function(){
+  console.log(`${this.name} the elephant goesphrRRRRRRRRRRR!!!!!!!`);
+};
+
+Elephant.prototype.grow = function(){
+  this.height = this.height + 12;
+};
+
+Elephant.prototype.addTrick = function(){
+  this.tricks.push(trick);
+};
+
+Elephant.prototype.play = function(){
+  trickIndex = Math.floor(Math.random() * this.tricks.length);
+  console.log(`${this.name} is ${this.tricks[trickIndex]}!`);
+};
