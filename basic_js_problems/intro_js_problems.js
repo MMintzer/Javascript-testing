@@ -8,7 +8,7 @@
 // "We shall MAKE the BEST GUAC."
 
 function madLib(verb, adjective, noun) {
-  return `We shall ${verb.toUpperCase()} the ${adjective.toUpperCase()}  ${noun.toUpperCase()}`;
+  return `We shall ${verb.toUpperCase()} the ${adjective.toUpperCase()} ${noun.toUpperCase()}`;
 }
 
 
@@ -155,19 +155,37 @@ function Elephant(name, height, tricks) {
   this.tricks = tricks;
 }
 
-Elephant.prototype.trumpet = function(){
+Elephant.prototype.trumpet = function() {
   console.log(`${this.name} the elephant goesphrRRRRRRRRRRR!!!!!!!`);
 };
 
-Elephant.prototype.grow = function(){
+Elephant.prototype.grow = function() {
   this.height = this.height + 12;
 };
 
-Elephant.prototype.addTrick = function(){
+Elephant.prototype.addTrick = function(trick) {
   this.tricks.push(trick);
 };
 
-Elephant.prototype.play = function(){
+Elephant.prototype.play = function() {
   trickIndex = Math.floor(Math.random() * this.tricks.length);
   console.log(`${this.name} is ${this.tricks[trickIndex]}!`);
 };
+
+
+let ellie = new Elephant("Ellie", 185, ["giving human friends a ride", "playing hide and seek"]);
+
+let charlie = new Elephant("Charlie", 200, ["painting pictures", "spraying water for a slip and slide"]);
+
+let kate = new Elephant("Kate", 234, ["writing letters", "stealing peanuts"]);
+
+let micah = new Elephant("Micah", 143, ["trotting", "playing tic tac toe", "doing elephant ballet"]);
+
+let herd = [ellie, charlie, kate, micah];
+
+// Now let's create a function called paradeHelper that we'll use to have an elephant parade. It should take a single elephant as an argument; this way, we can pass it as a callback to forEach when called on our herd. Make sure to store it as a property on the Elephant object. You can populate it with any console.log statement you want to build your parade (e.g. "_______ is trotting by!").
+
+
+Elephant.paradeHelper = function (elephant) {
+  console.log(`${elephant.name} is trotting by!`);
+}

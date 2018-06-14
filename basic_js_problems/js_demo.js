@@ -33,7 +33,7 @@ function summation(arr) {
   //this is a closer because it captured the arr from above
   function summer() {
     for (let i = 0; i < arr.length; i++) {
-      sum *= arr[i];
+      sum += arr[i];
     }
   }
 
@@ -43,6 +43,14 @@ function summation(arr) {
 
 }
 
+function summer(arr) {
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i];
+  }
+
+  return result;
+}
 
 // some testing
 console.log(summation([1, 2, 3, 4]));
@@ -61,9 +69,9 @@ console.log(summation([1, 2, 3, 4]));
 
 // cooler way
 
-// global.setTimeout(function(){
-//   console.log("it has been 5 seconds");
-// }, 5000);
+global.setTimeout(function(){
+  console.log("it has been 5 seconds");
+}, 5000);
 //this is ES5 syntax, not es6
 
 //ayyy it works!
