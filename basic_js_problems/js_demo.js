@@ -27,7 +27,7 @@ soundMaker("woof", 5)
 
 
 function summation(arr) {
-  let sum = 1;
+  let sum = 0;
 
 
   //this is a closer because it captured the arr from above

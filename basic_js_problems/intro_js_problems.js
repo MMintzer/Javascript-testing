@@ -189,3 +189,10 @@ let herd = [ellie, charlie, kate, micah];
 Elephant.paradeHelper = function (elephant) {
   console.log(`${elephant.name} is trotting by!`);
 }
+
+herd.forEach(Elephant.paradeHelper)
+
+// Ellie is trotting by!
+// Charlie is trotting by!
+// Kate is trotting by!
+// Micah is trotting by!
