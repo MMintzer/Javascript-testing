@@ -13,7 +13,7 @@
 // Recap
 // That was super fun, right?
 
-Array.prototype.uniq = function() {
+Array.prototype.uniq = function(){
   let uniqueArray = [];
 
   for (let i = 0; i < this.length; i++) {
@@ -34,6 +34,25 @@ Array.prototype.twoSum = function(){
       if (this[i] + this[j] === 0) {
         result.push([i,j]);
       }
+    }
+  }
+  return result;
+}
+let a = [[1,2], [3,4], [5,6]];
+let b = [[1,2,8], [3,4,8], [5,6,8]];
+Array.prototype.transpose = function() {
+  let result = [];
+
+  for (let i = 0; i < this.length; i++){
+    subResult = [];
+    for (let j = 0; j < this.length; j++){
+      if (this[j][i] == undefined) {continue;}
+      subResult.push(this[j][i]);
+    }
+    if (subResult.length > 1){
+      result.push(subResult);
+    }else {
+      continue;
     }
   }
   return result;
