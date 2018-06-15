@@ -11,9 +11,9 @@ Student.prototype.name = function() {
 }
 
 Student.prototype.enroll(course) = function() {
-  if (course.enrolledStudents.include(this)){
+  if (!this.courses.includes(course)) {
     return;
-  }else{
+  }else {
     this.courses.push(course);
     course.addStudent(this);
   }
