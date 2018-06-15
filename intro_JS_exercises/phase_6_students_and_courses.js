@@ -9,7 +9,7 @@ function Student (fname, lname) {
 Student.prototype.name = function() {
   return `${this.fname} ${this.lname}`;
 }
-
+//should just return if the student is already enrolled in the course
 Student.prototype.enroll(course) = function() {
   if (!this.courses.includes(course)) {
     return;
@@ -18,7 +18,7 @@ Student.prototype.enroll(course) = function() {
     course.addStudent(this);
   }
 };
-
+// a hash of with key of departments and value of credits
 Student.prototype.courseLoad = function (){
   let load = {};
 
@@ -37,7 +37,7 @@ function Course (name, department, credits, students){
   this.credits = credits;
   this.students = []
 }
-
+//adds student if not already enrolled in course
 Course.prototype.addStudent(student){
   if (!this.students.include(student)){
     this.students.push(student);
