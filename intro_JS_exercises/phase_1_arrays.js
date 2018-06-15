@@ -1,17 +1,4 @@
-// Overview
-// Let's take a little while to create a few (hopefully familiar) functions. These should give you some experience iterating over and mutating arrays.
-//
-// Instructions
-// Monkey-patch the following methods to the Array class. Remember, we want to use prototype here.
-//
-// Array#uniq - returns a new array containing only the unique elements of the original array
-// the unique elements should be in the order in which they first appear
-// should not mutate the original array
-// Array#twoSum - returns an array of position pairs where the elements sum to zero
-// Array#transpose - where we have a two-dimensional array representing a matrix. returns the transpose
-// should not mutate the original array
-// Recap
-// That was super fun, right?
+//myUniq
 
 Array.prototype.uniq = function(){
   let uniqueArray = [];
@@ -25,6 +12,7 @@ Array.prototype.uniq = function(){
   return uniqueArray;
 }
 
+//twoSum returns the indices of elements that sum to 0
 Array.prototype.twoSum = function(){
   let result = [];
 
@@ -40,6 +28,9 @@ Array.prototype.twoSum = function(){
 }
 let a = [[1,2], [3,4], [5,6]];
 let b = [[1,2,8], [3,4,8], [5,6,8]];
+
+//transpose switches the rows and columns of nested array.
+// this version works with nested arrays that are not squares.
 Array.prototype.transpose = function() {
   let result = [];
 

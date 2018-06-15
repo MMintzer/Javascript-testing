@@ -1,28 +1,20 @@
-// Instructions
-// Define a Cat class
-// The constructor function should take a name and owner and store them in the instance
-// Write Cat.prototype.cuteStatement method that returns "[owner] loves [name]"
-// cuteStatement should be defined on the prototype
-// Prototypes example:
-// Create several Cat instances, test out their cuteStatement method
-// Reassign the Cat.prototype.cuteStatement method with a function that returns "Everyone loves [name]!"
-// Invoke the cuteStatement method on your old cats; the new method should be invoked
-// Add a meow method to the Cat class You can now call meow on your previously constructed Cat instances
-// Take one of your cats and set the meow property on the instance (cat1.meow = function () { ... }. Call meow on this Cat instance; call meow on any other cat. The other cats should continue to use the prototype method.
+//fedined a Cat constructor function
 function Cat(name, owner) {
   this.name = name;
-  this.owner = owner; 
+  this.owner = owner;
 }
 
+//a method which returns a string with the instance names interpolated
 Cat.prototype.cuteStatement = function() {
   return `${this.owner} loves ${this.name}`;
 }
 
-
+// makings some kitties
 const gnar = new Cat("Gnar", "Matt")
 const sasha = new Cat("Sasha", "Matt")
 const doug = new Cat("Doug", "Charles")
 
+// changing the first method
 Cat.prototype.cuteStatement = function() {
   return `Everyone loves ${this.name}`
 }
@@ -31,6 +23,7 @@ Cat.prototype.meow = function() {
   console.log("meoooowww")
 }
 
+//altering a method in a specific instance of a cat.  This is generally not a good idea as it will cause problems if you ever want to change the function.
 gnar.meow = function(){
   console.log("ROARRRR!")
 }

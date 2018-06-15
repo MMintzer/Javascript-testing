@@ -1,13 +1,4 @@
-// Overview
-// Let's do a few slightly more involved problems with arrays. These should be pretty familiar.
-//
-// Instructions
-// Write the following functions:
-//
-// Array#bubbleSort - receives an array, returns a sorted array by implementing bubble sort sorting algorithm
-// String#substrings - receives a string, returns an array of all substrings
-// Recap
-// These implementations should be almost identical to those we created in Ruby. Sadly, there is no parallel assignment in JavaScript, but we do get that really cool ++ operator.
+//myBubblesort
 
 Array.prototype.myBubblesort = function() {
   let sorted = false;
@@ -28,6 +19,7 @@ Array.prototype.myBubblesort = function() {
   }
 };
 
+//mySubstrings
 String.prototype.mySubstrings = function(){
   let substrings = [];
 
