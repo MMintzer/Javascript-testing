@@ -49,3 +49,16 @@ function fibsRec(n) {
 
   return fibs;
 }
+
+//deep dup
+function deepDup(arr) {
+
+  for (let i = 0; i < arr.length; i++){
+    if Array.isArray(arr[i]){
+      deepDup(arr[i]);
+    }else{
+
+    }
+  }
+
+}
