@@ -5,6 +5,18 @@ let Piece = require("./piece");
  * and two white pieces at [3, 3] and [4, 4]
  */
 function _makeGrid () {
+  let grid = [];
+  for (let i = 0; i < 8; i++){
+    let row = new Array(8);
+    grid.push(row);
+  }
+
+  grid[3][4] = new Piece("black");
+  grid[4][3] = new Piece("black");
+  grid[3][3] = new Piece("white");
+  grid[4][4] = new Piece("white");
+
+  return grid;
 }
 
 /**
@@ -25,6 +37,18 @@ Board.DIRS = [
  * throwing an Error if the position is invalid.
  */
 Board.prototype.getPiece = function (pos) {
+  // let x = pos[0];
+  // let y = pos[1];
+  // if (x > 8 || x < 0 || y < 0 || y > 8){
+  //   throw error;
+  // }
+  // return this.grid[x][y];
+
+  if (!this.isValidPos(pos)){
+    throw error;
+  }
+
+  return this.grid[pos[0], pos[1]];
 };
 
 /**
@@ -38,6 +62,15 @@ Board.prototype.hasMove = function (color) {
  * matches a given color.
  */
 Board.prototype.isMine = function (pos, color) {
+  if (this.getPiece(pos) == undefined){
+    return undefined;
+  }
+  if (this.getPiece(pos).color === color){
+    return true;
+  }
+  if (this.getPiece(pos).color !== color){
+    return false;
+  }
 };
 
 /**
@@ -57,6 +90,13 @@ Board.prototype.isOver = function () {
  * Checks if a given position is on the Board.
  */
 Board.prototype.isValidPos = function (pos) {
+  let x = pos[0];
+  let y = pos[1];
+  if (x > 8 || x < 0 || y < 0 || y > 8){
+    return false;
+  }else{
+    return true;
+  }
 };
 
 /**
