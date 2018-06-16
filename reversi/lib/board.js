@@ -48,7 +48,7 @@ Board.prototype.getPiece = function (pos) {
     throw error;
   }
 
-  return this.grid[pos[0], pos[1]];
+  return this.grid[pos[0]][pos[1]];
 };
 
 /**
@@ -77,6 +77,11 @@ Board.prototype.isMine = function (pos, color) {
  * Checks if a given position has a piece on it.
  */
 Board.prototype.isOccupied = function (pos) {
+  if (this.grid[pos[0][pos[1]]] !== undefined){
+    return true;
+  }else{
+    return false;
+  }
 };
 
 /**
