@@ -32,6 +32,24 @@ Board.DIRS = [
   [-1,  0], [-1,  1]
 ];
 
+// function nearbyPos(pos){
+//   let results = [];
+//
+//   for(let i = 0; i < Board.DIRS.length; i++){
+//     let potentialPos = pos;
+//     let row = pos[0];
+//     let col = pos[1];
+//
+//     row += Board.DIRS[i][0];
+//     col += Board.DIRS[i][1];
+//
+//     results.push([row,col]);
+//   }
+//   return results;
+// }
+
+
+
 /**
  * Returns the piece at a given [x, y] position,
  * throwing an Error if the position is invalid.
@@ -118,7 +136,30 @@ Board.prototype.isValidPos = function (pos) {
  * Returns null if no pieces of the opposite color are found.
  */
 function _positionsToFlip (board, pos, color, dir, piecesToFlip) {
+  let row = pos[0];
+  let col = pos[1];
+  row += dir[0];
+  col += dir[1];
+
+  if (!board.isValidPos([row, col])){
+    console.log("!isValidPos");
+    return null;
+  }
+  if (!board.isOccupied([row, col])){
+    console.log("not occupied");
+    return null;
+  }
+
+
+  if (board.grid[row][col].color !== color){
+    piecesToFlip.push([row,col]);
+    console.log("HELLO");
+    _positionsToFlip(board, [row,col], color, dir, piecesToFlip);
+  }else{
+    return piecesToFlip;
+  }
 }
+// _positionsToFlip(board,[3,5], "white",[0,-1], a);
 
 /**
  * Adds a new piece of the given color to the given position, flipping the
@@ -127,6 +168,10 @@ function _positionsToFlip (board, pos, color, dir, piecesToFlip) {
  * Throws an error if the position represents an invalid move.
  */
 Board.prototype.placePiece = function (pos, color) {
+  if (!validMove(pos)){
+    throw error;
+  }
+  board.grid[pos[0][pos[1]]] = new Piece(color)
 };
 
 /**
@@ -152,6 +197,8 @@ Board.prototype.print = function () {
  * color being flipped.
  */
 Board.prototype.validMove = function (pos, color) {
+  // if (!board.isOccupied(pos) &&
+  //
 
 };
 
@@ -160,8 +207,23 @@ Board.prototype.validMove = function (pos, color) {
  * the Board for a given color.
  */
 Board.prototype.validMoves = function (color) {
-  let moves = [];
-
+  // let myPieces = [];
+  // let myValidMoves = [];
+  //
+  // for (let i = 0; i < 8; i++){
+  //   for (let j = 0; j < 8; j++){
+  //     if (board.isMine([i,j], color)){
+  //       myPieces.push([i,j]);
+  //       }
+  //     }
+  //   }
+  //
+  //   for (let i = 0; i < myPieces.length; i++){
+  //     if validMove(){
+  //       myValidMoves.push()
+  //     }
+  //   }
+  // return myValidMoves;
 };
 
 module.exports = Board;
