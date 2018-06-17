@@ -26,9 +26,9 @@ var bsearch = function(arr, target){
 
 console.log(bsearch([1, 2, 5, 7, 8, 9], 2)) // => 1
 
-console.log(bsearch([1, 2, 5, 7, 8, 9], 8))  // => 4
+console.log(bSearch([1, 2, 5, 7, 8, 9], 8))  // => 4
 
-console.log(bsearch([1, 2, 5, 7, 8, 9], 9)) // => 5
+console.log(bSearch([1, 2, 5, 7, 8, 9], 9)) // => 5
 
 //it works!
 
@@ -75,3 +75,49 @@ let bSearch = function(arr, target){
     return (result === -1 ? -1 : mid + 1 + result);
   }
 }
+
+
+let select = function(arr, cb){
+  let result = [];
+
+  for (i = 0; i < arr.length; i++){
+    if (cb(arr[i]) === true){
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
+}
+
+let isLessThan = function(num, pivot){
+  if (num < pivot){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+let quickSort = function(arr){
+  if (arr.length <= 1){
+    return arr;
+  }
+
+  let pivot = arr[0];
+  let left = [];
+  let right = [];
+  let result = [];
+
+  for (let i = 1; i < arr.length; i++){
+    if (arr[i] <= pivot){
+      left.push(arr[i]);
+    }else{
+      right.push(arr[i]);
+    }
+  }
+  return result.concat(quickSort(left), pivot, quickSort(right));
+}
+
+let a = [5,4,3,2,1]
+let b = [98, 47, 66, 12, 10006, 24, 100];
+console.log(quickSort(a)); // => [1, 2, 3, 4, 5]
+console.log(quickSort(b)); // => [12, 24, 47, 66, 98, 100, 10006]
