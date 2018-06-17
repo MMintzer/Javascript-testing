@@ -77,7 +77,7 @@ Board.prototype.isMine = function (pos, color) {
  * Checks if a given position has a piece on it.
  */
 Board.prototype.isOccupied = function (pos) {
-  if (this.grid[pos[0][pos[1]]] !== undefined){
+  if (this.grid[pos[0]][pos[1]] !== undefined){
     return true;
   }else{
     return false;
@@ -133,6 +133,17 @@ Board.prototype.placePiece = function (pos, color) {
  * Prints a string representation of the Board to the console.
  */
 Board.prototype.print = function () {
+  for(let row = 0; row < 8; row++){
+    let render = "";
+    for(let col = 0; col < 8; col++){
+      if (board.grid[row][col] === undefined){
+        render += "| |";
+      }else{
+      render += "|" + board.grid[row][col] + "|";
+      }
+    }
+    console.log(render);
+  }
 };
 
 /**
@@ -141,6 +152,7 @@ Board.prototype.print = function () {
  * color being flipped.
  */
 Board.prototype.validMove = function (pos, color) {
+
 };
 
 /**
@@ -148,6 +160,8 @@ Board.prototype.validMove = function (pos, color) {
  * the Board for a given color.
  */
 Board.prototype.validMoves = function (color) {
+  let moves = [];
+
 };
 
 module.exports = Board;
