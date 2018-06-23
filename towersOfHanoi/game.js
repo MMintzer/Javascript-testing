@@ -7,11 +7,12 @@
 
 //constructor
 function Game() {
+  this.moves = 0;
   this.towers = [
     [3, 2, 1],
     [],
     []
-  ]
+  ];
 }
 
 Game.prototype.validMove = function(fromTower, toTower) {
@@ -34,6 +35,7 @@ Game.prototype.validMove = function(fromTower, toTower) {
 }
 
 Game.prototype.makeMove = function(fromTower, toTower) {
+  this.moves += 1;
   let fromDisk = this.towers[fromTower].pop();
   this.towers[toTower].push(fromDisk);
 }
@@ -44,6 +46,19 @@ Array.prototype.last = function() {
   }
   return this[this.length - 1];
 }
+
+Game.prototype.won = function() {
+  if (this.towers[1].toString() === "3,2,1") {
+    return true;
+  }
+  if (this.towers[2].toString() === "3,2,1") {
+    return true;
+  }
+
+  return false;
+}
+
+let game = new Game();
 
 
 Game.prototype.run = function() {
