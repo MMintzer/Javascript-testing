@@ -1,9 +1,9 @@
-// const readline = require('readline');
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-//   terminal: false
-// });
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  terminal: false
+});
 
 //constructor
 function Game() {
@@ -14,30 +14,40 @@ function Game() {
     []
   ];
 }
-
+console.log("hi1")
 Game.prototype.validMove = function(fromTower, toTower) {
   if (fromTower > 2 || fromTower < 0) {
+    console.log("hi2")
     return false;
   }
   if (toTower > 2 || toTower < 0) {
+    console.log("hi3")
     return false;
   }
   if (fromTower === toTower) {
+    console.log("hi4")
     return false;
   }
   if (this.towers[fromTower].length === 0) {
+    console.log("hi5")
     return false;
   }
-  if (this.towers[fromTower].last() > this.towers[toTower].last()) {
+  if (this.towers[fromTower].last() < this.towers[toTower].last()) {
+    console.log("hi6")
     return false;
   }
   return true;
 }
 
 Game.prototype.makeMove = function(fromTower, toTower) {
-  this.moves += 1;
-  let fromDisk = this.towers[fromTower].pop();
-  this.towers[toTower].push(fromDisk);
+  if (this.validMove(fromTower, toTower)) {
+    this.moves += 1;
+    let fromDisk = this.towers[fromTower].pop();
+    this.towers[toTower].push(fromDisk);
+  }
+  else{
+    throw 'Not a valid move';
+  }
 }
 
 Array.prototype.last = function() {
@@ -61,17 +71,23 @@ Game.prototype.won = function() {
 let game = new Game();
 
 
-Game.prototype.run = function() {
-  // until won
-  //   get move
-}
-Game.prototype.promptMove = function() {
+Game.prototype.promptMove = function(rl, callback) {
   console.log(this.towers);
-  rl.question("\n Enter your move (ex 1, 2)", (input) => {
-      if (validMove(input)) {
-        makeMove(input)
-      } else {
-        throw 'Invalid move';
-      }) rl.close();
-  });
+  rl.question("Enter a from tower: ", start => {
+    let startTowerIdx = parseInt(start);
+    rl.question("Enter a to tower: ", end => {
+      let endTowerIdx = parseInt(end);
+      callback(startTowerIdx, endTowerIdx);
+    })
+  })
+}
+
+
+
+
+
+Game.prototype.run = function() {
+  while (!game.won) {
+    promptMove();
+  }
 }
